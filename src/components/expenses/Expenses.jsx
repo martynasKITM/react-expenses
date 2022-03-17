@@ -1,12 +1,25 @@
-import React, {useState} from "react";
-import {Card, Table, Button} from "react-bootstrap";
-import Expense from "../expense/Expense";
+import React, {useState, useEffect} from "react";
+import {Card, Button} from "react-bootstrap";
+import ExpensesTable from "../expensesTable/ExpensesTable";
 import AddExpense from "../addexpense/AddExpense";
+import * as service from "../../services/expensesServices"
 const Expenses = ()=>{
     const [addExpense, setAddExpense] = useState(false);
+    const [expenses, setExpenses] = useState([])
+
+    const saveExpenseHandler = (data)=>{
+        service.addExpense(data);
+        setAddExpense(false)
+    }
+    useEffect(()=>{
+        service.getAllExpenses(expenses=>
+            setExpenses(expenses)
+        )
+    }, [])
+    console.log(expenses)
     return(
         <>
-            {(addExpense) && <AddExpense/>}
+            {(addExpense) && <AddExpense onSave={saveExpenseHandler}/>}
             <Card>
                 <Card.Header>
                     <Button className="btn btn-primary m-2" onClick={()=>setAddExpense(true)}>Pridėti išlaidas</Button>
@@ -16,24 +29,7 @@ const Expenses = ()=>{
                     <h3>Išlaidų sąrašas:</h3>
                 </Card.Header>
                 <Card.Body>
-                    <Table striped bordered hover>
-                        <thead>
-                            <tr>
-                                <th>Data</th>
-                                <th>Išlaidų tipas</th>
-                                <th>Aprašymas</th>
-                                <th>Suma</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>....</td>
-                                <td>....</td>
-                                <td>....</td>
-                                <td>....</td>
-                            </tr>
-                        </tbody>
-                    </Table>
+                 <ExpensesTable data={expenses} />
                 </Card.Body>
             </Card>
         </>
