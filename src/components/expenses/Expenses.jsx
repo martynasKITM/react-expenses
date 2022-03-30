@@ -6,7 +6,6 @@ import * as service from "../../services/expensesServices"
 const Expenses = ()=>{
     const [addExpense, setAddExpense] = useState(false);
     const [expenses, setExpenses] = useState([])
-
     const saveExpenseHandler = (data)=>{
         service.addExpense(data);
         setAddExpense(false)

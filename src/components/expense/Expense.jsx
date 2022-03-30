@@ -7,6 +7,7 @@ const Expense = (props)=>{
             <td>{props.description}</td>
             <td>{Number.parseFloat(props.amount).toFixed(2)}</td>
             <td><Link to={`expense/update/${props.id}`}>Redaguoti</Link></td>
+            <td><Link to={`/expense/delete/${props.id}`}>Šalinti</Link></td>
         </tr>
     )
 }
