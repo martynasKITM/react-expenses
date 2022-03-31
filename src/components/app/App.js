@@ -12,11 +12,11 @@ function App() {
         <Router>
             <Header/>
             <Routes>
-                <Route path="/" element={<Login/>}/>
-                <Route path="/expenses" element={<Expenses/>}/>
-                <Route path="/register" element={<Register/>}/>
-                <Route path="expense/update/:id" element={<AddExpense/>}/>
-                <Route path="expense/delete/:id" element={<Expenses/>}/>
+                <Route exact path="/" element={<Login/>}/>
+                <Route exact path="/expenses" element={<Expenses/>}/>
+                <Route exact path="/register" element={<Register/>}/>
+                <Route exact path="expense/update/:id" element={<AddExpense/>}/>
+                <Route exact path="expense/delete/:id" element={<Expenses/>}/>
             </Routes>
         </Router>
     </Container>

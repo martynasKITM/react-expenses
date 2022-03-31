@@ -15,7 +15,7 @@ const Expenses = ()=>{
             setExpenses(expenses)
         )
     }, [])
-    console.log(expenses)
+   
     return(
         <>
             {(addExpense) && <AddExpense onSave={saveExpenseHandler}/>}

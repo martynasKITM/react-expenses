@@ -12,10 +12,8 @@ const Login = ()=>{
     const [user,loading,error] = useAuthState(auth)
 
     useEffect(()=>{
-        if(loading){
-            return
-        }
-        if(user) navigate('/expenses')
+        if(loading) return
+        if(user) navigate("/expenses")
 
     },[user,loading])
 
@@ -31,8 +29,6 @@ const Login = ()=>{
         login(credentials.email, credentials.password)
 
     }
-
-    console.log(credentials)
     return(
         <>
             <h2 className="text-center mt-3">Prisijungti</h2>

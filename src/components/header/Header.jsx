@@ -1,4 +1,5 @@
 import {Navbar, Container} from "react-bootstrap";
+import User from "../auth/user/User";
 const Header = ()=>{
     return(
         <>
@@ -8,7 +9,7 @@ const Header = ()=>{
                         Expenses app
                     </Navbar.Brand>
                     <Navbar.Collapse className="justify-content-end">
-                        BIT React training
+                    <User/>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
