@@ -8,17 +8,23 @@ export const addExpense = (data)=>{
 
 }
 
-export const getAllExpenses = (onTimesChanged, sortBy)=> firebase
+
+export const getAllExpenses = (onExpenses, user)=> firebase
     .firestore()
     .collection('expenses')
-    .onSnapshot((snapshot) => {
-        const newTimes = snapshot.docs.map((doc) =>({
-            id: doc.id,
-            ...doc.data()
-        }))
-        onTimesChanged(newTimes)
+    .where("uid", "==", user?.uid)
+    .get()
+    .then((snapshot) => {
+
+        const newData = (snapshot.docs.length)? snapshot.docs.map((doc) =>(
+            {
+                id: doc.id,
+                ...doc.data()
+            })):null
+        onExpenses(newData)
 
     })
+
 
 export const getExpenseById = (item,id)=>{
     firebase

@@ -20,7 +20,7 @@ const User = ()=>{
 
     },[user, loading])
 
-console.log('useris',userData)
+
     return(
         <>
         {(user) ?  //Ar turim prisijungusi vartotoja ?

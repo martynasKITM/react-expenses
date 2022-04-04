@@ -27,8 +27,7 @@ const ExpensesTable = (props)=>{
             </tr>
             </thead>
             <tbody>
-            {props.data.map((expense, i) => {
-                console.log(i)
+            {props.data && props.data.map((expense, i) => {
                 return (<Expense
                     key={i}
                     id = {expense.id}

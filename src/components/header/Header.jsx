@@ -9,7 +9,7 @@ const Header = ()=>{
                         Expenses app
                     </Navbar.Brand>
                     <Navbar.Collapse className="justify-content-end">
-                    <User/>
+
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
